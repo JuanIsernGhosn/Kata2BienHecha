@@ -19,17 +19,7 @@ public class Main {
         Integer[] array = {1,4,7,1,1,3,4,1,4,3};
         String[] array1 = {"Pepe","Juan","Alberto","Jesus"};
         
-        Histogram histo = new Histogram(array);
-        
-        HashMap <Integer, Integer> histogram = histo.getHisto();
-        
-        for(int i = 0; i<array.length; i++){
-            if(!histogram.containsKey(array[i])){
-                histogram.put(array[i], 1);
-            } else {
-                histogram.put(array[i], histogram.get(array[i])+1);
-            } 
-        }
+        Histogram <Integer> histogram = BuildHisto.cumputHisto(array);
         
         for (Object key : histogram.keySet()) {
             System.out.println(key + " : "+histogram.get(key));            

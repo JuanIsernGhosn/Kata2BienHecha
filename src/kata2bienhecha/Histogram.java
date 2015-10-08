@@ -5,6 +5,7 @@
 package kata2bienhecha;
 
 import java.util.HashMap;
+import java.util.Set;
 
 /**
  *
@@ -12,28 +13,18 @@ import java.util.HashMap;
  */
 public class Histogram<T> {
     
-    private final T[] elVector;
+    private final HashMap<T, Integer> map = new HashMap<>();
 
-    public Histogram(T[] elVector) {
-        this.elVector = elVector;
+    public Integer get(Object key) {
+        return map.get(key);
     }
 
-        
-    public HashMap <T,Integer> getHisto(){
-        HashMap<T, Integer> histo = new HashMap<>();
-        for(int i = 0; i<elVector.length; i++){
-            if (!histo.containsKey(elVector[i])){
-                histo.put(elVector[i], 1); 
-            } else {
-                histo.put(elVector[i], histo.get(elVector[i])+1);
-            }
-        }
-        return histo;
-    }
-
-    public T[] getVector() {
-        return elVector;
+    public Set<T> keySet() {
+        return map.keySet();
     }
     
-    
+    public void increment (T key){
+        map.put(key, map.containsKey(key)?map.get(key)+1 : 1);
+    }
 }
+    
