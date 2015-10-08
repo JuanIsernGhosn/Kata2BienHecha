@@ -16,7 +16,9 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        int[] array = {1,4,7,1,1,3,4,1,4,3};
+        Integer[] array = {1,4,7,1,1,3,4,1,4,3};
+        String[] array1 = {"Pepe","Juan","Alberto","Jesus"};
+        
         Histogram histo = new Histogram(array);
         
         HashMap <Integer, Integer> histogram = histo.getHisto();
@@ -26,10 +28,10 @@ public class Main {
                 histogram.put(array[i], 1);
             } else {
                 histogram.put(array[i], histogram.get(array[i])+1);
-            }
+            } 
         }
         
-        for (Integer key : histogram.keySet()) {
+        for (Object key : histogram.keySet()) {
             System.out.println(key + " : "+histogram.get(key));            
         }
     }
